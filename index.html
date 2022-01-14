@@ -16,10 +16,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-
+     
+    <!-- js #app -->
     <div id="app">
-        <div class="container container-fluid d-flex justify-content-center mt-5">
-            <h1 class="mt-4">{{ title }}</h1>
+
+        <!-- title -->
+        <h1 class="text-center mt-4">{{ title }}</h1>
+        
+        <!-- slider container -->
+        <div class="container container-fluid d-flex justify-content-center mt-5 rounded">
+            
+
+            <!-- left arrow -->
+            <button @click="prevImage" class="btn text-white" id="button-left"><i class="fas fa-angle-left"></i></button>
+
+            <!-- slider box -->
+            <div class="slider-box text-center rounded">
+                 <h3 class="fw-lighter text-white mt-2">{{ images[currentIndex].name }}</h3>
+                <img :src="images[currentIndex].imageLink" class="rounded my-3">
+            </div>
+                
+            <!-- right arrow -->
+            <button @click="nextImage" class="btn text-white" id="button-right"><i class="fas fa-angle-right"></i></button>
+
+            
         </div>
     </div>
 

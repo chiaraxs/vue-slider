@@ -2,30 +2,37 @@ new Vue({
     el: '#app',
     data: {
         title: 'Vue Slider',
+        currentIndex: 0,
         images: [
             {
-                name: '1',
-                imageLink: 'https://unsplash.it/600/300?image=34'
+                name: 'Summer dawns ',
+                imageLink: 'https://unsplash.it/600/300?image=92'
             },
             {
-                name: '2',
+                name: 'Spring dreams',
                 imageLink: 'https://unsplash.it/600/300?image=90'
                 },
-                {
-                    ame: '3',
+            {
+                name: 'Winterfall',
                 imageLink: 'https://unsplash.it/600/300?image=123'
-                },
-                {
-                name: '4',
-                imageLink: 'https://unsplash.it/600/300?image=78'
-                },
-                {
-                name: '5',
+            },
+            {
+                name: 'Pacefull cliffs',
+                imageLink: 'https://unsplash.it/600/300?image=323'
+            },
+            {
+                name: 'Wayland Wood',
                 imageLink: 'https://unsplash.it/600/300?image=795'
-                }
+            }
         ] 
     },
     methods: {
+        nextImage: function () {
+            this.currentIndex++;
+        },
+        prevImage: function () {
+            this.currentIndex--;
+        }
 
     }
 });
