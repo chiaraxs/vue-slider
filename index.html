@@ -41,17 +41,24 @@
         </div>
 		
         <!-- dots container -->
+        
+        <!-- replico 5 dots per 5 images con il v-for -->
+        <!-- 'index' viene creato dal v-for -> il v-for viene convertito in forEach -->
+        <!-- quindi internamente passerà le due variabili (il singolo elemento e l’indice) -->
+        <!-- motivo per cui index è accessibile SOLO dagli elementi interni a quel v-for e non da fuori -->
         <div class="container-dots d-flex justify-content-center mt-2">
-            <i class="fas fa-circle m-2"></i>
-            <i class="fas fa-circle m-2"></i>
-            <i class="fas fa-circle m-2"></i>
-            <i class="fas fa-circle m-2"></i>
-            <i class="fas fa-circle m-2"></i> 
+            <div class="container-dots d-flex justify-content-center mt-2">
+                <i class="fas fa-circle m-2" v-for="(image, index) in images" :class="currentIndex === index ? 'active' : '' "></i> 
+            </div>
+            
+            
+            <!-- <i class="fas fa-circle m-2" v-for="index in images.length" :class="index === currentIndex ? 'active' : '' "></i>  // questa versione salta un dot --> 
+            
         </div>
 	</div>
     
-    
-
+   
+        
     
     <!-- link js -->
     <script src="./js/script.js"></script>

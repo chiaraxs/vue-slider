@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data: {
         title: 'Vue Slider',
-        currentIndex: 0,
+        currentIndex: 0, // fisso currentIndex a 0
         images: [
             {
                 name: 'Summer dawns ',

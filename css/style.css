@@ -9,3 +9,9 @@
     background-color: rgb(31, 26, 26);
     height: 400px;
 }
+
+
+/* class added on current slide */
+.active{
+  color: #8FBC8F;
+}
