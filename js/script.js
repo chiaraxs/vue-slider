@@ -28,10 +28,18 @@ new Vue({
     },
     methods: {
         nextImage: function () {
-            this.currentIndex++;
+            this.currentIndex++; // incrementa index -> nextImage
+
+            if(this.currentIndex > this.images.length -1){
+                this.currentIndex = 0; // lo slider riparte da capo in incremento
+            } 
         },
         prevImage: function () {
-            this.currentIndex--;
+            this.currentIndex--; // decremanta index -> prevImage
+
+            if(this.currentIndex < 0){
+                this.currentIndex = this.images.length -1; // lo slider riparte da capo in decremento
+            }
         }
 
     }
