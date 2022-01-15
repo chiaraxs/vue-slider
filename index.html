@@ -31,9 +31,10 @@
             <button @click="prevImage" class="btn" id="button-left"><i class="fas fa-angle-left"></i></button>
 
             <!-- slider box -->
+            <!-- in mouseover -> stop autoplay || in mouseleave -> restart autoplay -->
             <div class="slider-box text-center rounded">
                 <h3 class="fw-lighter text-white mt-2">{{ images[currentIndex].name }}</h3>
-                <img :src="images[currentIndex].imageLink" class="rounded my-3">
+                <img :src="images[currentIndex].imageLink" class="rounded my-3" @mouseover="resetAutoPlay" @mouseleave="restartAutoPlay">
             </div>
                 
             <!-- right arrow -->

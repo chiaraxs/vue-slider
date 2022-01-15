@@ -42,16 +42,19 @@ new Vue({
                 this.currentIndex = this.images.length -1; // lo slider riparte da capo in decremento
             }
         },
-        resetPLay: function () {
+        resetAutoPlay: function () {
             clearInterval(this.timer);
-            this.play();
-        }, 
+            this.autoplay(clock); // stoppa autoplay in mouseover su img
+        },
+        restartAutoPlay: function () {
+            this.autoplay(); // l'autoplay riparte in mouseleave su img
+        },
         autoplay: function () {
             let clock = this;
-            this.timer = setInterval(function () {
+            this.timer = setInterval(function() {
                 clock.nextImage();
             }, 3000); // ogni 3 sec lo slider switcha image -> timer change con SetInterval -> il this diventerà la nextImage ogni 3 sec
-        }
+        },
     },
     created: function () {
         this.autoplay();
