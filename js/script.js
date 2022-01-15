@@ -3,6 +3,7 @@ new Vue({
     data: {
         title: 'Vue Slider',
         currentIndex: 0, // fisso currentIndex a 0, in modo da poterlo incrementare e decrementare
+        timer: 0, // setto timer a 0 per autoplay
         images: [
             {
                 name: 'Summer dawns ',
@@ -40,8 +41,20 @@ new Vue({
             if(this.currentIndex < 0){
                 this.currentIndex = this.images.length -1; // lo slider riparte da capo in decremento
             }
+        },
+        resetPLay: function () {
+            clearInterval(this.timer);
+            this.play();
+        }, 
+        autoplay: function () {
+            let clock = this;
+            this.timer = setInterval(function () {
+                clock.nextImage();
+            }, 3000); // ogni 3 sec lo slider switcha image -> timer change con SetInterval -> il this diventerà la nextImage ogni 3 sec
         }
-
+    },
+    created: function () {
+        this.autoplay();
     }
 });
 
