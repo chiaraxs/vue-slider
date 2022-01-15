@@ -5,13 +5,22 @@
   box-sizing: border-box;
 }
 
-.container{
-    background-color: rgb(31, 26, 26);
-    height: 400px;
+/* containers style */
+#app{
+  background-color: #8B8386 ;
 }
 
+.container{
+  background-color:#CDC1C5;
+  height: 400px;
+}
+
+/* icons style */
+.fas{
+  cursor: pointer;
+}
 
 /* class added on current slide */
 .active{
-  color: #8FBC8F;
+  color: #FFF0F5;
 }

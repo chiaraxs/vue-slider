@@ -21,34 +21,38 @@
     <div id="app">
 
         <!-- title -->
-        <h1 class="text-center mt-4">{{ title }}</h1>
+        <h1 class="text-center">{{ title }}</h1>
         
         <!-- slider container -->
         <div class="container container-fluid d-flex justify-content-center mt-5 rounded">
             
 
             <!-- left arrow -->
-            <button @click="prevImage" class="btn text-white" id="button-left"><i class="fas fa-angle-left"></i></button>
+            <button @click="prevImage" class="btn" id="button-left"><i class="fas fa-angle-left"></i></button>
 
             <!-- slider box -->
             <div class="slider-box text-center rounded">
-                 <h3 class="fw-lighter text-white mt-2">{{ images[currentIndex].name }}</h3>
+                <h3 class="fw-lighter text-white mt-2">{{ images[currentIndex].name }}</h3>
                 <img :src="images[currentIndex].imageLink" class="rounded my-3">
             </div>
                 
             <!-- right arrow -->
-            <button @click="nextImage" class="btn text-white" id="button-right"><i class="fas fa-angle-right"></i></button>
+            <button @click="nextImage" class="btn" id="button-right"><i class="fas fa-angle-right"></i></button>
+            
         </div>
 		
         <!-- dots container -->
         
-        <!-- replico 5 dots per 5 images con il v-for -->
-        <!-- 'index' viene creato dal v-for -> il v-for viene convertito in forEach -->
-        <!-- quindi internamente passerà le due variabili (il singolo elemento e l’indice) -->
+        <!-- 1. replico 5 dots per 5 images con il v-for -->
+        <!-- n.b. : 'index' viene creato dal v-for -> il v-for viene convertito in forEach -->
+        <!-- quindi internamente passerà le due variabili (image e index) -->
         <!-- motivo per cui index è accessibile SOLO dagli elementi interni a quel v-for e non da fuori -->
+        <!-- 2. se l'indice corrente è === ad index -> attiva class 'active' e colora dot. Altrimenti attiva class vuota -> ''  -->
+        <!-- 3. al click sul dot corrispondente vai all'immagine correlata -> currentIndex = index -->
         <div class="container-dots d-flex justify-content-center mt-2">
+            
             <div class="container-dots d-flex justify-content-center mt-2">
-                <i class="fas fa-circle m-2" v-for="(image, index) in images" :class="currentIndex === index ? 'active' : '' "></i> 
+                <i class="fas fa-circle m-2" v-for="(image, index) in images" :class="currentIndex === index ? 'active' : '' " @click="currentIndex = index"></i> 
             </div>
             
             

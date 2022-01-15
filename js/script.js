@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     data: {
         title: 'Vue Slider',
-        currentIndex: 0, // fisso currentIndex a 0
+        currentIndex: 0, // fisso currentIndex a 0, in modo da poterlo incrementare e decrementare
         images: [
             {
                 name: 'Summer dawns ',
@@ -44,3 +44,9 @@ new Vue({
 
     }
 });
+
+
+// BONUS:
+// 1- applicare l’autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+// 2- quando il mouse va in hover sullo slider, bloccare l’autoplay e farlo riprendere quando esce 
+// (può essere utile inserire un elemento nell’html che indichi all’utente che lo slider è in pausa, per esempio un’icona)
