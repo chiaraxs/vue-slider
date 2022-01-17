@@ -47,7 +47,7 @@ new Vue({
             let clock = this; // riprendo la variabile dichiarata nei dati e, internamente alla funzione 'autoplay, le assegno il valore 'this'
             this.timer = setInterval(function() {
                 clock.nextImage();
-            }, 3000); // ogni 3 sec lo slider switcha image -> timer change con SetInterval -> il this diventerà la nextImage ogni 3 sec
+            }, 3000); // ogni 3 sec lo slider switcha image -> timer change con SetInterval -> ad ogni intervallo sul this -> passa a nextImage
         },
         resetAutoPlay: function () {
             clearInterval(this.timer);  // stop autoplay in mouseover su img -> clearInterval stoppa il setInterval di 'autoplay'
