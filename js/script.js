@@ -4,6 +4,7 @@ new Vue({
         title: 'Vue Slider',
         currentIndex: 0, // fisso currentIndex a 0, in modo da poterlo incrementare e decrementare
         timer: 0, // setto timer a 0 per autoplay
+        clock: null, // fisso variabile a null nei data da modificare poi all'interno della funzione 'autoplay'
         images: [
             {
                 name: 'Summer dawns ',
@@ -42,23 +43,22 @@ new Vue({
                 this.currentIndex = this.images.length -1; // lo slider riparte da capo in decremento
             }
         },
-        resetAutoPlay: function () {
-            clearInterval(this.timer);
-            this.autoplay(clock); // stoppa autoplay in mouseover su img
-        },
-        restartAutoPlay: function () {
-            this.autoplay(); // l'autoplay riparte in mouseleave su img
-        },
         autoplay: function () {
-            let clock = this;
+            let clock = this; // riprendo la variabile dichiarata nei dati e, internamente alla funzione 'autoplay, le assegno il valore 'this'
             this.timer = setInterval(function() {
                 clock.nextImage();
             }, 3000); // ogni 3 sec lo slider switcha image -> timer change con SetInterval -> il this diventerà la nextImage ogni 3 sec
         },
+        resetAutoPlay: function () {
+            clearInterval(this.timer);  // stop autoplay in mouseover su img -> clearInterval stoppa il setInterval di 'autoplay'
+        },
+        restartAutoPlay: function () {
+            this.autoplay(); // l'autoplay riparte in mouseleave su img -> riparte il SetInterval di 'autoplay'
+        },
     },
     created: function () {
-        this.autoplay();
-    }
+        this.autoplay(); // l'evento 'created' invoca la funzione 'autoplay' dichiarata nei methods e la lancia
+    }                    // in alternativa -> evento 'mounted'
 });
 
 
